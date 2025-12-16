@@ -1,43 +1,41 @@
+import { getSortedPostsData, getPostData } from "@/lib/posts";
+import Link from "next/link";
 
 
-import { getSortedPostsData } from '@/lib/posts'; // You might still have this
-import { getPostData } from '@/lib/posts';      // Import the function to test
 
-// Make the default export function async to use await inside
 export default async function Blog() {
-  // --- Test getSortedPostsData (Optional - you can keep or remove) ---
   const allPostsData = getSortedPostsData();
-  // console.log('--- All Posts Data (Sorted) ---', allPostsData); // Optional log
 
-  // --- Test getPostData ---
-  const specificSlug = 'first-post'; // Choose a slug that exists in your /posts folder
-  try {
-    console.log(`--- Fetching data for slug: ${specificSlug} ---`);
-    // Call the async function using await
-    const postData = await getPostData(specificSlug);
-
-    // Log the entire returned object to the server console (terminal)
-    console.log(`--- Single Post Data for slug: ${specificSlug} ---`);
-    console.log(postData);
-    console.log('----------------------------------------------');
-
-  } catch (error) {
-    // Log any errors that might occur (e.g., file not found)
-    console.error(`Error fetching post data for slug "${specificSlug}":`, error);
-  }
-
-  // --- Render the page ---
-  // The component still needs to return JSX
-  // We add a message indicating where to check the log output
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p>
-          Check your terminal (running 'npm run dev') to see the detailed log output for the post with slug: '{specificSlug}'.
-        </p>
-        {/* You could potentially render postData.title here later */}
-      </div>
-      {/* ... other existing default content ... */}
+    <main className="flex min-h-screen flex-col items-center p-6 md:p-12 lg:p-24">
+      <section className="w-full max-w-3xl">
+        <h1 className="text-4xl font-bold mb-8 text-center">My Blog</h1>
+
+
+        <ul className="space-y-6">
+
+          {allPostsData.map((post) => (
+
+            <li key={post.slug} className="border p-4 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200 ease-in-out">
+              <Link href={`/posts/${post.slug}`} className="block p-4"> 
+
+              <h2 className="text-2xl font-semibold mb-2">
+                {post.title}
+              </h2>
+
+              <div className="mt-1">
+                <time dateTime={post.date} className="text-gray-600 dark:text-gray-400 text-sm">
+                  {post.date} • {post.author}
+                </time>
+                <p className="mt-2 text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+                  {post.description}
+                </p>
+              </div>
+            </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
     </main>
   );
 }
