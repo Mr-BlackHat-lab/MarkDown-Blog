@@ -1,43 +1,31 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from '@/components/ui/dropdown-menu'; // from shadcn setup
-import { Button } from '@/components/ui/button'; // shadcn button
+
 
 const Navbar: FC = () => {
   return (
-    <nav className="flex justify-between items-center bg-neutral-900 p-4 text-white">
-      <div className="text-xl font-bold">MyWebsite</div>
+    <nav className="sticky top-0 z-50 flex justify-between items-center bg-accent border rounded-2xl p-4 text-foreground">
+      <div className="text-xl font-bold">Markdown Blog</div>
       <ul className="flex space-x-4 items-center">
         <li>
-          <Link href="/" className="hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 rounded">
+          <Link href="/" className="hover:bg-accent-foreground hover:text-accent dark:hover:bg-accent/50 h-9 px-4 py-2 rounded-2xl transition">
             Home
           </Link>
         </li>
         <li>
-          <Link href="/blog" className="hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 rounded">
+          <Link href="/blog" className="hover:bg-accent-foreground hover:text-accent dark:hover:bg-accent/50 h-9 px-4 py-2 rounded-2xl transition">
             Blog Listing
           </Link>
         </li>
         <li>
-          <Link href="/about" className="hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 rounded">
+          <Link href="/about" className="hover:bg-accent-foreground hover:text-accent dark:hover:bg-accent/50 h-9 px-4 py-2 rounded-2xl transition">
             About
           </Link>
         </li>
         <li>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost">Contact ▾</Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-neutral-800 text-white">
-              <DropdownMenuItem>Email: example@mail.com</DropdownMenuItem>
-              <DropdownMenuItem>Phone: +1234567890</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Link href="/contact" className="hover:bg-accent-foreground hover:text-accent dark:hover:bg-accent/50 h-9 px-4 py-2 rounded-2xl transition">
+            Contact
+          </Link>
         </li>
       </ul>
     </nav>
