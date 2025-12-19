@@ -30,7 +30,7 @@ A modern, responsive blog built with Next.js and Markdown. Features a clean UI, 
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/markdownblog.git
+   git clone https://github.com/Mr-BlackHat-lab/MarkDown-Blog 
    cd markdownblog
    ```
 
