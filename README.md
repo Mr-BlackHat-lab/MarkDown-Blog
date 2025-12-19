@@ -6,6 +6,10 @@ A modern, responsive blog built with Next.js and Markdown. Features a clean UI, 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.x-38bdf8?logo=tailwind-css)
 
+## 🌐 Live Demo
+
+**[View Live Demo →](https://mark-down-blog-tan.vercel.app/)**
+
 ## ✨ Features
 
 - 📝 **Markdown-powered** - Write posts in Markdown with frontmatter metadata
@@ -30,7 +34,7 @@ A modern, responsive blog built with Next.js and Markdown. Features a clean UI, 
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/Mr-BlackHat-lab/MarkDown-Blog 
+   git clone https://github.com/Mr-BlackHat-lab/MarkDown-Blog
    cd markdownblog
    ```
 
