@@ -29,12 +29,20 @@ export default async function PostPage({ params }: PostPageProps) {
     console.log(`[PostPage] Rendering page for slug: ${slug}`);
 
     return (
-        <article>
-            <h1>{postData.title}</h1>
-            <div>
-                <p>By {postData.author} • {postData.date}</p>
-            </div>
-            <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-        </article>
+        <main className="bg-background">
+            <section className="py-10">
+                <article className="max-w-3xl md:max-w-4xl mx-auto px-4 sm:px-6 bg-card text-card-foreground border border-border rounded-2xl shadow-sm p-6 sm:p-8">
+                    <h1 className="text-foreground text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
+                        {postData.title}
+                    </h1>
+                    <div className="mt-3 text-muted-foreground text-sm">
+                        <p>
+                            By {postData.author} • {postData.date}
+                        </p>
+                    </div>
+                    <div className="mt-6 leading-relaxed space-y-4" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+                </article>
+            </section>
+        </main>
     );
 }

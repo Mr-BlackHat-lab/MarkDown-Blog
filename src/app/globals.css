@@ -114,9 +114,28 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply box-border border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom slow scale + bounce animation */
+@keyframes scale-bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.08);
+  }
+}
+
+.animate-scale-bounce {
+  animation: scale-bounce 3s ease-in-out infinite;
+}
+* {
+  transition: color 300ms ease, background-color 300ms ease,
+    border-color 300ms ease;
 }
